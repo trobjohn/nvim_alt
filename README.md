@@ -1,2 +1,2 @@
-# nvim_alt
-More complex repl
+# nvim
+Nvim keybindings, repl, etc.

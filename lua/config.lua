@@ -70,6 +70,24 @@ vim.keymap.set("i", "<C-h>", "<C-o>^", { silent = true })
 vim.keymap.set("i", "<C-l>", "<C-o>$", { silent = true })
 
 
+-- Neo-tree automatically
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    if vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv(0)) == 1 then
+      vim.cmd("Neotree")
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    if vim.bo.filetype == "neo-tree" and vim.fn.winnr("$") == 1 then
+      vim.cmd("quit")
+    end
+  end,
+})
+
+
 -- Visual-mode: send selection
 -- vim.keymap.set("v", "<leader>r", function()
 --   require("repl").send_visual_to_right_term()
