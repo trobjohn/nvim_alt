@@ -69,6 +69,9 @@ vim.keymap.set("n", "<C-l>", "$", { silent = true })
 vim.keymap.set("i", "<C-h>", "<C-o>^", { silent = true })
 vim.keymap.set("i", "<C-l>", "<C-o>$", { silent = true })
 
+-- Window navigation
+vim.keymap.set({"i","n"}, "<C-[>", "<C-w>h", { silent = true })
+vim.keymap.set({"i","n"}, "<C-]>", "<C-w>l", { silent = true })
 
 -- Neo-tree automatically
 vim.api.nvim_create_autocmd("VimEnter", {
